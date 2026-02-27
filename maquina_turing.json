@@ -1,0 +1,384 @@
+{
+  "estados": [
+    "q0",
+    "init_find_end",
+    "init_write_hash2",
+    "init_write_0",
+    "rewind",
+    "find_1",
+    "goto_end_for_hash",
+    "find_B1_start",
+    "skip_B1",
+    "copy_B1",
+    "B1_goto_end",
+    "B1_return",
+    "copy_B2",
+    "B2_goto_end",
+    "B2_return",
+    "restore_B2",
+    "cleanup_goto_end",
+    "cleanup_skip_ans",
+    "cleanup_erase",
+    "cleanup_finish",
+    "q_accept",
+    "q_reject"
+  ],
+  "alfabeto_entrada": [
+    "1"
+  ],
+  "alfabeto_cinta": [
+    "1",
+    "0",
+    "X",
+    "#",
+    "x",
+    "y",
+    "H",
+    "_"
+  ],
+  "estado_inicial": "q0",
+  "estado_aceptacion": "q_accept",
+  "estado_rechazo": "q_reject",
+  "transiciones": {
+    "q0": {
+      "1": [
+        "init_find_end",
+        "X",
+        "R"
+      ],
+      "_": [
+        "q_accept",
+        "#",
+        "R"
+      ]
+    },
+    "init_find_end": {
+      "1": [
+        "init_find_end",
+        "1",
+        "R"
+      ],
+      "_": [
+        "init_write_hash2",
+        "#",
+        "R"
+      ]
+    },
+    "init_write_hash2": {
+      "_": [
+        "init_write_0",
+        "#",
+        "R"
+      ]
+    },
+    "init_write_0": {
+      "_": [
+        "rewind",
+        "0",
+        "L"
+      ]
+    },
+    "rewind": {
+      "0": [
+        "rewind",
+        "0",
+        "L"
+      ],
+      "#": [
+        "rewind",
+        "#",
+        "L"
+      ],
+      "x": [
+        "rewind",
+        "x",
+        "L"
+      ],
+      "y": [
+        "rewind",
+        "y",
+        "L"
+      ],
+      "X": [
+        "rewind",
+        "X",
+        "L"
+      ],
+      "1": [
+        "rewind",
+        "1",
+        "L"
+      ],
+      "_": [
+        "find_1",
+        "_",
+        "R"
+      ]
+    },
+    "find_1": {
+      "X": [
+        "find_1",
+        "X",
+        "R"
+      ],
+      "1": [
+        "goto_end_for_hash",
+        "X",
+        "R"
+      ],
+      "#": [
+        "cleanup_goto_end",
+        "#",
+        "R"
+      ]
+    },
+    "goto_end_for_hash": {
+      "1": [
+        "goto_end_for_hash",
+        "1",
+        "R"
+      ],
+      "#": [
+        "goto_end_for_hash",
+        "#",
+        "R"
+      ],
+      "0": [
+        "goto_end_for_hash",
+        "0",
+        "R"
+      ],
+      "x": [
+        "goto_end_for_hash",
+        "x",
+        "R"
+      ],
+      "X": [
+        "goto_end_for_hash",
+        "X",
+        "R"
+      ],
+      "_": [
+        "find_B1_start",
+        "#",
+        "L"
+      ]
+    },
+    "find_B1_start": {
+      "0": [
+        "find_B1_start",
+        "0",
+        "L"
+      ],
+      "#": [
+        "skip_B1",
+        "#",
+        "L"
+      ]
+    },
+    "skip_B1": {
+      "0": [
+        "skip_B1",
+        "0",
+        "L"
+      ],
+      "#": [
+        "copy_B1",
+        "#",
+        "R"
+      ],
+      "x": [
+        "copy_B1",
+        "x",
+        "R"
+      ]
+    },
+    "copy_B1": {
+      "0": [
+        "B1_goto_end",
+        "x",
+        "R"
+      ],
+      "#": [
+        "copy_B2",
+        "#",
+        "R"
+      ]
+    },
+    "B1_goto_end": {
+      "0": [
+        "B1_goto_end",
+        "0",
+        "R"
+      ],
+      "#": [
+        "B1_goto_end",
+        "#",
+        "R"
+      ],
+      "_": [
+        "B1_return",
+        "0",
+        "L"
+      ]
+    },
+    "B1_return": {
+      "0": [
+        "B1_return",
+        "0",
+        "L"
+      ],
+      "#": [
+        "B1_return",
+        "#",
+        "L"
+      ],
+      "x": [
+        "copy_B1",
+        "x",
+        "R"
+      ]
+    },
+    "copy_B2": {
+      "0": [
+        "B2_goto_end",
+        "y",
+        "R"
+      ],
+      "#": [
+        "restore_B2",
+        "#",
+        "L"
+      ]
+    },
+    "B2_goto_end": {
+      "0": [
+        "B2_goto_end",
+        "0",
+        "R"
+      ],
+      "#": [
+        "B2_goto_end",
+        "#",
+        "R"
+      ],
+      "_": [
+        "B2_return",
+        "0",
+        "L"
+      ]
+    },
+    "B2_return": {
+      "0": [
+        "B2_return",
+        "0",
+        "L"
+      ],
+      "#": [
+        "B2_return",
+        "#",
+        "L"
+      ],
+      "y": [
+        "copy_B2",
+        "y",
+        "R"
+      ]
+    },
+    "restore_B2": {
+      "y": [
+        "restore_B2",
+        "0",
+        "L"
+      ],
+      "#": [
+        "rewind",
+        "#",
+        "L"
+      ]
+    },
+    "cleanup_goto_end": {
+      "#": [
+        "cleanup_goto_end",
+        "#",
+        "R"
+      ],
+      "x": [
+        "cleanup_goto_end",
+        "x",
+        "R"
+      ],
+      "0": [
+        "cleanup_goto_end",
+        "0",
+        "R"
+      ],
+      "_": [
+        "cleanup_skip_ans",
+        "_",
+        "L"
+      ]
+    },
+    "cleanup_skip_ans": {
+      "0": [
+        "cleanup_skip_ans",
+        "0",
+        "L"
+      ],
+      "#": [
+        "cleanup_erase",
+        "H",
+        "L"
+      ]
+    },
+    "cleanup_erase": {
+      "0": [
+        "cleanup_erase",
+        "_",
+        "L"
+      ],
+      "x": [
+        "cleanup_erase",
+        "_",
+        "L"
+      ],
+      "y": [
+        "cleanup_erase",
+        "_",
+        "L"
+      ],
+      "#": [
+        "cleanup_erase",
+        "_",
+        "L"
+      ],
+      "X": [
+        "cleanup_erase",
+        "_",
+        "L"
+      ],
+      "1": [
+        "cleanup_erase",
+        "_",
+        "L"
+      ],
+      "_": [
+        "cleanup_finish",
+        "_",
+        "R"
+      ]
+    },
+    "cleanup_finish": {
+      "_": [
+        "cleanup_finish",
+        "_",
+        "R"
+      ],
+      "H": [
+        "q_accept",
+        "#",
+        "R"
+      ]
+    }
+  }
+}
